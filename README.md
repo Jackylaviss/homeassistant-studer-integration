@@ -9,6 +9,47 @@ DISCLAIMER: This library is NOT officially made by Studer-Innotec.
 The complete official documentation is available on: \
 [Studer-Innotec Download Center](https://www.studer-innotec.com/en/downloads/) *-> Software and Updates -> Communication protocol Xcom-232i*
 
+## Installation automatique sur Raspberry Pi
+
+1. Clonez le dépôt :
+```bash
+git clone https://github.com/Jackylaviss/xcom-protocol.git
+cd xcom-protocol
+```
+
+2. Rendez le script d'installation exécutable :
+```bash
+chmod +x install.sh
+```
+
+3. Exécutez le script d'installation :
+```bash
+sudo ./install.sh
+```
+
+Le script vous demandera :
+- Le port série du Xcom-232i (par défaut : /dev/ttyUSB0)
+- L'adresse IP du broker MQTT (par défaut : localhost)
+- Le port MQTT (par défaut : 1883)
+- Le nom d'utilisateur MQTT (par défaut : ha-mqtt)
+- Le mot de passe MQTT (par défaut : ha-mqtt)
+
+## Que fait le script d'installation ?
+
+1. Installe les dépendances nécessaires
+2. Clone le dépôt dans /opt/xcom-protocol
+3. Crée un fichier de configuration avec vos paramètres
+4. Configure un service systemd pour le démarrage automatique
+5. Démarre le service
+
+## Commandes utiles
+
+- Voir l'état du service : `sudo systemctl status xcom-protocol`
+- Voir les logs en temps réel : `sudo journalctl -u xcom-protocol -f`
+- Redémarrer le service : `sudo systemctl restart xcom-protocol`
+- Arrêter le service : `sudo systemctl stop xcom-protocol`
+- Désactiver le démarrage automatique : `sudo systemctl disable xcom-protocol`
+
 ## Getting Started
 
 ### Requirements
@@ -170,3 +211,15 @@ Usually this is caused by using the default multicast address to write values th
 Usually this is caused by a wrong MOXA setup when using UDP / TCP, make sure `Data Packing` is set correctly in the MOXA. See [above](#moxa-setup-for-xcom-lan-tcp) for more information.
 
 When using Xcom-232i then checksum errors and AssertionErrors can be caused by a bad RS232 connection or a wrong BAUD rate setting.
+
+## Dépannage
+
+Si le service ne démarre pas :
+1. Vérifiez les logs : `sudo journalctl -u xcom-protocol -f`
+2. Vérifiez que le port série est correct : `ls -l /dev/ttyUSB*`
+3. Vérifiez les permissions du port série : `sudo chmod 666 /dev/ttyUSB0`
+4. Vérifiez la connexion MQTT : `mosquitto_sub -h localhost -t "#" -u votre_user -P votre_password`
+
+## Contribution
+
+N'hésitez pas à créer une [pull request](https://github.com/Jackylaviss/xcom-protocol/pulls) si vous souhaitez contribuer au projet.
