@@ -1,4 +1,4 @@
-# XCOM Protocol for Studer Devices
+# Home Assistant Integration for Studer Devices
 
 This project implements the Studer-Innotec Xcom protocol for communication with Studer devices via Xcom-232i. It enables seamless integration with home automation systems, particularly Home Assistant, through MQTT.
 
