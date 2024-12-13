@@ -71,10 +71,7 @@ sudo journalctl -u xcom-protocol -f
 
 ## Home Assistant Integration
 
-1. Copy the sensors configuration to your Home Assistant configuration directory:
-```bash
-cp homeassistant/xcom-sensors.yaml /config/
-```
+1. Copy `homeassistant/xcom-sensors.yaml` from this repository to your Home Assistant configuration directory. The location of this directory depends on your Home Assistant installation method.
 
 2. Add the following to your Home Assistant `configuration.yaml`:
 ```yaml
@@ -93,10 +90,7 @@ All sensors will be automatically configured with:
 - Logical grouping
 - Ready for dashboard creation
 
-You can then restart Home Assistant to apply the changes:
-```bash
-ha core restart
-```
+After modifying your configuration, restart Home Assistant to apply the changes.
 
 ## Manual Configuration (if needed)
 
@@ -157,4 +151,3 @@ The script is configured as a system service for automatic startup. Logs provide
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
