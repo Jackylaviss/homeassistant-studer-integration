@@ -34,6 +34,73 @@ Le script vous demandera :
 - Le nom d'utilisateur MQTT (par défaut : ha-mqtt)
 - Le mot de passe MQTT (par défaut : ha-mqtt)
 
+## Intégration avec Home Assistant
+
+### Prérequis
+- Home Assistant installé et fonctionnel
+- Broker MQTT configuré dans Home Assistant
+- Le service xcom-protocol installé et fonctionnel
+
+### Configuration dans Home Assistant
+
+1. Assurez-vous que l'intégration MQTT est activée dans Home Assistant
+2. Copiez le fichier de configuration des capteurs :
+```bash
+# Sur votre Raspberry Pi
+sudo cp /opt/xcom-protocol/homeassistant/xcom-sensors.yaml /config/
+```
+
+3. Ajoutez la ligne suivante à votre fichier `configuration.yaml` :
+```yaml
+sensor: !include xcom-sensors.yaml
+```
+
+4. Redémarrez Home Assistant
+
+### Capteurs disponibles
+
+Les capteurs suivants seront automatiquement créés dans Home Assistant :
+- Puissance de sortie AC (W)
+- Tension de la batterie (V)
+- Courant de la batterie (A)
+- État de charge de la batterie (%)
+- Température de la batterie (°C)
+
+### Personnalisation
+
+Vous pouvez personnaliser l'affichage dans Home Assistant :
+1. Allez dans Configuration → Personnalisation
+2. Sélectionnez une entité Studer
+3. Ajoutez une icône, un nom personnalisé ou d'autres attributs
+
+### Tableau de bord suggéré
+
+Vous pouvez créer un tableau de bord dédié avec ces éléments :
+```yaml
+title: Système Studer
+cards:
+  - type: entities
+    title: État du système
+    entities:
+      - sensor.studer_battery_state_of_charge
+      - sensor.studer_battery_voltage
+      - sensor.studer_battery_current
+      - sensor.studer_battery_temperature
+      - sensor.studer_ac_power_output
+  
+  - type: gauge
+    title: État de charge batterie
+    entity: sensor.studer_battery_state_of_charge
+    min: 0
+    max: 100
+    
+  - type: history-graph
+    title: Historique batterie
+    entities:
+      - sensor.studer_battery_voltage
+      - sensor.studer_battery_current
+```
+
 ## Que fait le script d'installation ?
 
 1. Installe les dépendances nécessaires

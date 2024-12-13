@@ -1,0 +1,55 @@
+# Configuration pour Home Assistant
+# À placer dans votre dossier config/
+
+# Capteurs MQTT pour Studer Xcom
+sensor:
+  # Puissance de sortie AC
+  - platform: mqtt
+    name: "Studer AC Power Output"
+    state_topic: "xcom/ac_power_out"
+    unit_of_measurement: "W"
+    device_class: power
+    state_class: measurement
+    
+  # Tension de la batterie
+  - platform: mqtt
+    name: "Studer Battery Voltage"
+    state_topic: "xcom/battery_voltage"
+    unit_of_measurement: "V"
+    device_class: voltage
+    state_class: measurement
+    
+  # Courant de la batterie
+  - platform: mqtt
+    name: "Studer Battery Current"
+    state_topic: "xcom/battery_current"
+    unit_of_measurement: "A"
+    device_class: current
+    state_class: measurement
+    
+  # État de charge de la batterie
+  - platform: mqtt
+    name: "Studer Battery State of Charge"
+    state_topic: "xcom/battery_charge_state"
+    unit_of_measurement: "%"
+    device_class: battery
+    state_class: measurement
+    
+  # Température de la batterie
+  - platform: mqtt
+    name: "Studer Battery Temperature"
+    state_topic: "xcom/battery_temp"
+    unit_of_measurement: "°C"
+    device_class: temperature
+    state_class: measurement
+
+# Groupe pour regrouper tous les capteurs Studer
+group:
+  studer_system:
+    name: "Système Studer"
+    entities:
+      - sensor.studer_ac_power_output
+      - sensor.studer_battery_voltage
+      - sensor.studer_battery_current
+      - sensor.studer_battery_state_of_charge
+      - sensor.studer_battery_temperature
