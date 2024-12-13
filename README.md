@@ -125,11 +125,32 @@ You can monitor the service status and logs using the commands in the Service Ma
 
 ## Home Assistant Integration
 
-All sensors are automatically configured with:
+1. Copy `xcom-sensors.yaml` to your Home Assistant configuration directory:
+```bash
+cp xcom-sensors.yaml /config/
+```
+
+2. Add the following to your Home Assistant `configuration.yaml`:
+```yaml
+mqtt: !include xcom-sensors.yaml
+```
+
+Alternatively, if you already have MQTT configured, you can include just the sensors:
+```yaml
+mqtt:
+  sensor: !include xcom-sensors.yaml
+```
+
+All sensors will be automatically configured with:
 - Appropriate units of measurement
 - Device classes
 - Logical grouping
 - Ready for dashboard creation
+
+You can then restart Home Assistant to apply the changes:
+```bash
+ha core restart
+```
 
 ## Maintenance
 
