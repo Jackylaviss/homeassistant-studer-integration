@@ -2,6 +2,8 @@
 
 This project implements the Studer-Innotec Xcom protocol for communication with Studer devices via Xcom-232i. It enables seamless integration with home automation systems, particularly Home Assistant, through MQTT.
 
+This project uses the xcom_proto protocol implementation from [zocker-160](https://github.com/zocker-160). Many thanks for this great work that made this integration possible.
+
 ## Features
 
 - Complete communication with Studer devices through Xcom protocol
@@ -143,11 +145,11 @@ The script can be configured as a system service for automatic startup. Logs pro
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-[Your License]
-
 ## Acknowledgments
 
 - Studer-Innotec for the Xcom protocol documentation
 - Home Assistant community
+
+## License
+
+[Your License]
