@@ -6,6 +6,21 @@ Python library implementing Studer-Innotec Xcom protocol integration for Home As
 
 This Home Assistant integration is based on the [xcom-protocol](https://github.com/zocker-160/xcom-protocol) library developed by zocker-160. It extends its functionality to provide native Home Assistant integration, allowing easy monitoring and control of your Studer devices directly from your Home Assistant interface.
 
+## Hardware Setup
+
+This integration requires the following hardware setup:
+- A Raspberry Pi (any model with USB ports)
+- A Studer Xcom-232i module
+- A USB to Serial cable connecting the Raspberry Pi to the Xcom-232i
+
+The Raspberry Pi acts as a bridge between your Studer inverter and Home Assistant. It should be:
+1. Connected to your local network (for Home Assistant communication)
+2. Connected via USB-Serial to the Xcom-232i module (for Studer device communication)
+
+```
+[Home Assistant] <-> [Raspberry Pi + This Integration] <-> [USB-Serial] <-> [Xcom-232i] <-> [Studer Device]
+```
+
 NOTE: This lib is still WiP, so functionality is still limited, but feel free to create a [pull request](https://github.com/zocker-160/xcom-protocol/pulls) if you want to contribute ;)
 
 DISCLAIMER: This library is NOT officially made by Studer-Innotec.
