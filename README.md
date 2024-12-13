@@ -1,6 +1,6 @@
 # XCOM Protocol for Studer Devices
 
-This project implements the Studer-Innotec Xcom protocol for communication with Studer devices via Xcom-232i and Xcom-LAN (TCP/UDP). It enables seamless integration with home automation systems, particularly Home Assistant, through MQTT.
+This project implements the Studer-Innotec Xcom protocol for communication with Studer devices via Xcom-232i. It enables seamless integration with home automation systems, particularly Home Assistant, through MQTT.
 
 ## Features
 
@@ -17,9 +17,7 @@ This project implements the Studer-Innotec Xcom protocol for communication with 
 ## Prerequisites
 
 - A Raspberry Pi (even a Pi 1 is sufficient!) or equivalent running Linux
-- A Studer device with Xcom interface:
-  - Xcom-232i: requires an available USB port
-  - Xcom-LAN: requires network connectivity
+- A Studer device with Xcom-232i interface and USB port
 - Python 3.x
 - MQTT broker (like Mosquitto)
 - Home Assistant
@@ -41,8 +39,7 @@ sudo ./install.sh
 The installation script will:
 - Install required system dependencies (python3, pip, etc.)
 - Prompt for all configuration information:
-  - Xcom interface type (232i or LAN)
-  - Serial port for Xcom-232i or IP address for Xcom-LAN
+  - Serial port for Xcom-232i
   - MQTT broker IP address
   - MQTT port
   - MQTT username
