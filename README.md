@@ -69,6 +69,35 @@ sudo systemctl restart xcom-protocol
 sudo journalctl -u xcom-protocol -f
 ```
 
+## Home Assistant Integration
+
+1. Copy the sensors configuration to your Home Assistant configuration directory:
+```bash
+cp homeassistant/xcom-sensors.yaml /config/
+```
+
+2. Add the following to your Home Assistant `configuration.yaml`:
+```yaml
+mqtt: !include xcom-sensors.yaml
+```
+
+Alternatively, if you already have MQTT configured, you can include just the sensors:
+```yaml
+mqtt:
+  sensor: !include xcom-sensors.yaml
+```
+
+All sensors will be automatically configured with:
+- Appropriate units of measurement
+- Device classes
+- Logical grouping
+- Ready for dashboard creation
+
+You can then restart Home Assistant to apply the changes:
+```bash
+ha core restart
+```
+
 ## Manual Configuration (if needed)
 
 If you need to modify the configuration after installation:
@@ -83,18 +112,6 @@ sudo nano /opt/xcom-protocol/config.py
 sudo systemctl restart xcom-protocol
 ```
 
-## Configuration
-
-1. Copy the example configuration:
-```bash
-cp config.py.example config.py
-```
-
-2. Edit `config.py` with your settings:
-- Xcom interface (IP address or serial port)
-- MQTT broker details (server, port, credentials)
-
-3. The Home Assistant configuration file is available in the `homeassistant` directory. See the [Home Assistant Integration](#home-assistant-integration) section for installation instructions.
 
 ## Usage
 
@@ -132,54 +149,12 @@ You can monitor the service status and logs using the commands in the Service Ma
 - Operating status
 - Temperature monitoring
 
-## Home Assistant Integration
-
-1. Copy the sensors configuration to your Home Assistant configuration directory:
-```bash
-cp homeassistant/xcom-sensors.yaml /config/
-```
-
-2. Add the following to your Home Assistant `configuration.yaml`:
-```yaml
-mqtt: !include xcom-sensors.yaml
-```
-
-Alternatively, if you already have MQTT configured, you can include just the sensors:
-```yaml
-mqtt:
-  sensor: !include xcom-sensors.yaml
-```
-
-All sensors will be automatically configured with:
-- Appropriate units of measurement
-- Device classes
-- Logical grouping
-- Ready for dashboard creation
-
-You can then restart Home Assistant to apply the changes:
-```bash
-ha core restart
-```
 
 ## Maintenance
 
-The script can be configured as a system service for automatic startup. Logs provide monitoring of operation and any potential errors are reported to Home Assistant.
-
-## Support
-
-- Full documentation in this README
-- Easy parameter addition through `parameters.py`
-- Issues can be reported via GitHub
+The script is configured as a system service for automatic startup. Logs provide monitoring of operation and any potential errors are reported to Home Assistant.
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Acknowledgments
-
-- Studer-Innotec for the Xcom protocol documentation
-- Home Assistant community
-
-## License
-
-[Your License]
