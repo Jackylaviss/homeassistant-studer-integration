@@ -24,6 +24,7 @@ This project uses the xcom_proto protocol implementation from [zocker-160](https
 - MQTT broker (like Mosquitto)
 - Home Assistant
 - Network connection for the Raspberry Pi
+- USB to Serial adapter cable (to connect Xcom-232i to your system)
 
 ## Installation
 
