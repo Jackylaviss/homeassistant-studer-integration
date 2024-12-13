@@ -125,9 +125,9 @@ You can monitor the service status and logs using the commands in the Service Ma
 
 ## Home Assistant Integration
 
-1. Copy `xcom-sensors.yaml` to your Home Assistant configuration directory:
+1. Copy the sensors configuration to your Home Assistant configuration directory:
 ```bash
-cp xcom-sensors.yaml /config/
+cp homeassistant/xcom-sensors.yaml /config/
 ```
 
 2. Add the following to your Home Assistant `configuration.yaml`:
