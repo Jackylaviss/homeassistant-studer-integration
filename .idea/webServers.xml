@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="24dad653-11dd-4890-86af-5dda853f97a8" name="RaspiXtender" url="">
+        <fileTransfer rootFolder="/home/alexandre" accessType="SFTP" host="192.168.0.224" port="22" sshConfigId="e5d564df-8e4e-4822-b8bc-6319c8840d33" sshConfig="alexandre@192.168.0.224:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" isUseSudo="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

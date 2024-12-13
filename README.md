@@ -1,6 +1,10 @@
-# xcom-protocol
+# homeassistant-studer-integration
 
-Python library implementing Studer-Innotec Xcom protocol for Xcom-232i and Xcom-LAN (TCP/UDP).
+Python library implementing Studer-Innotec Xcom protocol integration for Home Assistant via Xcom-232i and Xcom-LAN (TCP/UDP).
+
+## About
+
+This Home Assistant integration is based on the [xcom-protocol](https://github.com/zocker-160/xcom-protocol) library developed by zocker-160. It extends its functionality to provide native Home Assistant integration, allowing easy monitoring and control of your Studer devices directly from your Home Assistant interface.
 
 NOTE: This lib is still WiP, so functionality is still limited, but feel free to create a [pull request](https://github.com/zocker-160/xcom-protocol/pulls) if you want to contribute ;)
 
@@ -13,8 +17,8 @@ The complete official documentation is available on: \
 
 1. Clonez le dépôt :
 ```bash
-git clone https://github.com/Jackylaviss/xcom-protocol.git
-cd xcom-protocol
+git clone https://github.com/Jackylaviss/homeassistant-studer-integration.git
+cd homeassistant-studer-integration
 ```
 
 2. Rendez le script d'installation exécutable :
@@ -39,7 +43,7 @@ Le script vous demandera :
 ### Prérequis
 - Home Assistant installé et fonctionnel
 - Broker MQTT configuré dans Home Assistant
-- Le service xcom-protocol installé et fonctionnel
+- Le service homeassistant-studer-integration installé et fonctionnel
 
 ### Configuration dans Home Assistant
 
@@ -47,7 +51,7 @@ Le script vous demandera :
 2. Copiez le fichier de configuration des capteurs :
 ```bash
 # Sur votre Raspberry Pi
-sudo cp /opt/xcom-protocol/homeassistant/xcom-sensors.yaml /config/
+sudo cp /opt/homeassistant-studer-integration/homeassistant/xcom-sensors.yaml /config/
 ```
 
 3. Ajoutez la ligne suivante à votre fichier `configuration.yaml` :
@@ -104,18 +108,18 @@ cards:
 ## Que fait le script d'installation ?
 
 1. Installe les dépendances nécessaires
-2. Clone le dépôt dans /opt/xcom-protocol
+2. Clone le dépôt dans /opt/homeassistant-studer-integration
 3. Crée un fichier de configuration avec vos paramètres
 4. Configure un service systemd pour le démarrage automatique
 5. Démarre le service
 
 ## Commandes utiles
 
-- Voir l'état du service : `sudo systemctl status xcom-protocol`
-- Voir les logs en temps réel : `sudo journalctl -u xcom-protocol -f`
-- Redémarrer le service : `sudo systemctl restart xcom-protocol`
-- Arrêter le service : `sudo systemctl stop xcom-protocol`
-- Désactiver le démarrage automatique : `sudo systemctl disable xcom-protocol`
+- Voir l'état du service : `sudo systemctl status homeassistant-studer-integration`
+- Voir les logs en temps réel : `sudo journalctl -u homeassistant-studer-integration -f`
+- Redémarrer le service : `sudo systemctl restart homeassistant-studer-integration`
+- Arrêter le service : `sudo systemctl stop homeassistant-studer-integration`
+- Désactiver le démarrage automatique : `sudo systemctl disable homeassistant-studer-integration`
 
 ## Getting Started
 
@@ -137,7 +141,7 @@ cards:
 ### Installation
 
 ```bash
-pip install xcom-proto
+pip install homeassistant-studer-integration
 ```
 #### Important
 
@@ -282,11 +286,11 @@ When using Xcom-232i then checksum errors and AssertionErrors can be caused by a
 ## Dépannage
 
 Si le service ne démarre pas :
-1. Vérifiez les logs : `sudo journalctl -u xcom-protocol -f`
+1. Vérifiez les logs : `sudo journalctl -u homeassistant-studer-integration -f`
 2. Vérifiez que le port série est correct : `ls -l /dev/ttyUSB*`
 3. Vérifiez les permissions du port série : `sudo chmod 666 /dev/ttyUSB0`
 4. Vérifiez la connexion MQTT : `mosquitto_sub -h localhost -t "#" -u votre_user -P votre_password`
 
 ## Contribution
 
-N'hésitez pas à créer une [pull request](https://github.com/Jackylaviss/xcom-protocol/pulls) si vous souhaitez contribuer au projet.
+N'hésitez pas à créer une [pull request](https://github.com/Jackylaviss/homeassistant-studer-integration/pulls) si vous souhaitez contribuer au projet.

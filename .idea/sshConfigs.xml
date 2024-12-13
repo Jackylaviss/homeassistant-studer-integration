@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" id="31e3b520-e2a4-4d25-8302-85abf4f94afc" customName="RaspiXtender" nameFormat="CUSTOM" useOpenSSHConfig="true">
+        <option name="customName" value="RaspiXtender" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
