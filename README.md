@@ -85,7 +85,16 @@ sudo systemctl restart xcom-protocol
 
 ## Configuration
 
-1. Copy `homeassistant.yaml` to your Home Assistant configuration directory and add its contents to your configuration.
+1. Copy the example configuration:
+```bash
+cp config.py.example config.py
+```
+
+2. Edit `config.py` with your settings:
+- Xcom interface (IP address or serial port)
+- MQTT broker details (server, port, credentials)
+
+3. The Home Assistant configuration file is available in the `homeassistant` directory. See the [Home Assistant Integration](#home-assistant-integration) section for installation instructions.
 
 ## Usage
 
