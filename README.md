@@ -19,7 +19,7 @@ This project uses the xcom_proto protocol implementation from [zocker-160](https
 ## Prerequisites
 
 - A Raspberry Pi (even a Pi 1 is sufficient!) or equivalent running Linux
-- A Studer device with Xcom-232i interface and USB port
+- A Studer device with Xcom-232i interface and USB port (available from [Fangpusun](https://www.fangpusun.com/communication-module-xcom-232i) for around $80 - works perfectly with Studer equipment as it's the exact same hardware)
 - Python 3.x
 - MQTT broker (like Mosquitto)
 - Home Assistant
