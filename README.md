@@ -30,8 +30,8 @@ This project uses the xcom_proto protocol implementation from [zocker-160](https
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/[your-repo]/xcom-protocol
-cd xcom-protocol
+git clone https://github.com/Jackylaviss/homeassistant-studer-integration.git
+cd homeassistant-studer-integration
 ```
 
 2. Run the installation script as root:
