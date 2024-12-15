@@ -18,7 +18,7 @@ This project uses the xcom_proto protocol implementation from [zocker-160](https
 
 ## Prerequisites
 
-- A Raspberry Pi (even a Pi 1 is sufficient!) or equivalent running Linux
+- A Raspberry Pi or equivalent running Linux
 - A Studer device Xcom-232i interface (available from [Fangpusun](https://www.fangpusun.com/communication-module-xcom-232i) for around $80 - works perfectly with Studer equipment as it's the exact same hardware)
 - USB to Serial adapter cable ([recommended model on Amazon](https://www.amazon.fr/dp/B00QUZY4UG))
 - Python 3.x
